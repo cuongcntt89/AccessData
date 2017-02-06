@@ -16,11 +16,11 @@ public class SecondLoadActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second_load);
 
         initView();
+
         if (mSecondLoadContentView != null) {
             if (savedInstanceState != null) {
                 return;
             }
-
             SecondLoadFragment secondLoadFragment = new SecondLoadFragment();
             secondLoadFragment.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction()
@@ -37,4 +37,5 @@ public class SecondLoadActivity extends AppCompatActivity {
     private void initEvent() {
         // TODO
     }
+
 }
