@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.application.accessdata.fragments.FirstLoadFragment">
+
+    <TextView
+        android:id="@+id/first_load_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wellcome to fragment first load"
+        android:textAllCaps="true"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_below="@+id/first_load_title"
+        android:src="@drawable/first_load"/>
+
+</RelativeLayout>
