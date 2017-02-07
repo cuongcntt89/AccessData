@@ -6,19 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.application.accessdata.SecondLoadActivity">
 
-    <TextView
-        android:id="@+id/second_load_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:gravity="center"
-        android:text="Activity second"/>
-
     <FrameLayout
         android:id="@+id/second_load_content_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/second_load_title"/>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>

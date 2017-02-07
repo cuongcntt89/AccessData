@@ -3,7 +3,9 @@ package com.application.accessdata.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 public class SecondLoadFragment extends Fragment {
 
     private RecyclerView recyclerView;
-    private ItemAdapter adapter;
+    private RecyclerView.Adapter adapter;
     private ArrayList<Item> mDataItems;
 
     public SecondLoadFragment() {
@@ -28,19 +30,16 @@ public class SecondLoadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second_load, container, false);
+
+        initializeData();
         recyclerView = (RecyclerView) view.findViewById(R.id.item_recycler_view);
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        initializeData(); // Call function khởi tạo dữ liệu
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
         adapter = new ItemAdapter(getActivity().getApplicationContext(), mDataItems);
         recyclerView.setAdapter(adapter);
-//        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
+
+        return view;
     }
 
     private void initializeData(){
