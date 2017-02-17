@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.application.accessdata.fragments.ReceiveFragment">
+
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="Receiver result"
+        android:layout_alignParentTop="true"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/bt_gotoScreenOther"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:stateListAnimator="@null"
+        android:text="Go to Screen Other"/>
+
+</RelativeLayout>

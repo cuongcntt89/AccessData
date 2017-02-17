@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAD2D2"
+    tools:context="com.application.accessdata.fragments.AFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:layout_alignParentTop="true"
+        android:text="Fragment A" />
+
+    <Button
+        android:id="@+id/bt_gotoPage"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Go to Fragment B"
+        android:textAllCaps="false"
+        android:layout_alignParentBottom="true"
+        android:stateListAnimator="@null" />
+
+</RelativeLayout>
