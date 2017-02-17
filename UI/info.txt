@@ -1,0 +1,2 @@
+Size screen 1080 x 1920 (3px = 1dp)
+Type screen : xxhdpi (24px ~ 8dp, 9px ~ (3-4dp))
