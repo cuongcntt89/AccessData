@@ -1,0 +1,16 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.application.accessdata.fragments.DataDummyFragment">
+
+    <Button
+        android:id="@+id/bt_sendDataDummy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_centerInParent="true"
+        android:stateListAnimator="@null"
+        android:text="Send Data"/>
+
+</RelativeLayout>

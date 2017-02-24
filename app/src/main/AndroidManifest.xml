@@ -43,7 +43,8 @@
         </receiver>
 
         <activity android:name=".DataActivity" />
-        <activity android:name=".BackStackActivity"></activity>
+        <activity android:name=".BackStackActivity" />
+        <activity android:name=".InflateActivity"></activity>
     </application>
 
 </manifest>
