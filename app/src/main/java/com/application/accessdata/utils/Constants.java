@@ -5,9 +5,7 @@ package com.application.accessdata.utils;
  */
 
 public class Constants {
-
     public static final int SPLASH_DISPLAY_LENGTH = 1000;
-
     public static final String KEY_SEND_DATA = "key_send_data";
 
 }

@@ -11,12 +11,12 @@ import android.widget.TextView;
 import com.application.accessdata.R;
 import com.application.accessdata.entity.DataDummy;
 import com.application.accessdata.utils.Constants;
+import com.application.accessdata.view.fragmentview.DataDummyResultFragmentView;
 
 public class DataDummyResultFragment extends Fragment {
+    private DataDummyResultFragmentView dataDummyResultFragmentView;
     private DataDummy dataDummy;
     private String result;
-
-    private TextView mTvReceiver;
 
     public DataDummyResultFragment() {
         // TODO
@@ -39,11 +39,10 @@ public class DataDummyResultFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_data_dummy_result, container, false);
-        mTvReceiver = (TextView) view.findViewById(R.id.tv_receiver);
-        mTvReceiver.setText(this.result);
+        dataDummyResultFragmentView = new DataDummyResultFragmentView(inflater, container);
+        dataDummyResultFragmentView.mTvReceiver.setText(this.result);
 
-        return view;
+        return dataDummyResultFragmentView.getRootView();
     }
 
 }

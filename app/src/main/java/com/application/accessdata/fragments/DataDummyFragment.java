@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import com.application.accessdata.R;
 import com.application.accessdata.entity.DataDummy;
 import com.application.accessdata.utils.Constants;
-import com.application.accessdata.view.view.fragmentview.DataDummyFragmentView;
+import com.application.accessdata.view.fragmentview.DataDummyFragmentView;
 
 import java.util.ArrayList;
 import java.util.List;

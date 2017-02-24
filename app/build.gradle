@@ -13,9 +13,36 @@ android {
     }
     buildTypes {
         release {
+            applicationIdSuffix ".release"
+            debuggable false
             minifyEnabled false
+            zipAlignEnabled true
+            versionNameSuffix '-RELEASE'
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            minifyEnabled false
+            zipAlignEnabled true
+            versionNameSuffix '-DEBUG'
+        }
+    }
+
+    lintOptions {
+        disable 'MissingTranslation', 'ExtraTranslation'
+        checkReleaseBuilds true
+        abortOnError false
+        ignoreWarnings true
+        warningsAsErrors false
+    }
+
+    compileOptions {
+        encoding "UTF-8"
+    }
+
+    productFlavors {
+
     }
 }
 

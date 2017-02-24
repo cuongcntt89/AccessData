@@ -1,4 +1,4 @@
-package com.application.accessdata.view.view.fragmentview;
+package com.application.accessdata.view.fragmentview;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

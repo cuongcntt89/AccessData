@@ -44,7 +44,9 @@
 
         <activity android:name=".DataActivity" />
         <activity android:name=".BackStackActivity" />
-        <activity android:name=".InflateActivity"></activity>
+        <activity android:name=".InflateActivity" />
+        <activity android:name=".CustomizeFunctionActivity" />
+        <activity android:name="com.application.UiActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_ui"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:background="@drawable/bg_ui_activity"
+    tools:context="com.application.UiActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/bt_register"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/bg_ui_activity_button_register"
+                android:stateListAnimator="@null"
+                android:text="登録を進める（無料）"
+                android:textSize="15sp"
+                android:layout_marginBottom="12dp"
+                android:textAllCaps="false"/>
+
+            <Button
+                android:id="@+id/bt_loginFacebook"
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:textColor="#006cc4"
+                android:background="@drawable/bg_ui_activity_button_login_facebook"
+                android:stateListAnimator="@null"
+                android:layout_below="@+id/bt_register"
+                android:text="Facebook でログイン"
+                android:textSize="15sp"
+                android:layout_marginBottom="8dp"
+                android:textAllCaps="false"/>
+
+            <TextView
+                android:id="@+id/tv_description_login_facebook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bt_loginFacebook"
+                android:textColor="#006cc4"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:text="Facebook に利用状況が公開されることはありません。"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_description_login_facebook"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="#666666"
+                    android:text="ログイン"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:layout_alignParentRight="true"
+                    android:textColor="#666666"
+                    android:text="携帯サイトでログイン"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
