@@ -7,7 +7,7 @@
     android:paddingLeft="24dp"
     android:paddingRight="24dp"
     android:background="@drawable/bg_ui_activity"
-    tools:context="com.application.UiActivity">
+    tools:context=".UiActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

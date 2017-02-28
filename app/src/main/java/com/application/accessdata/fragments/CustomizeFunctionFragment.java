@@ -33,20 +33,17 @@ public class CustomizeFunctionFragment extends Fragment {
         customizeFunctionFragmentView.mButtonShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogCustomize dialogCustomize = new DialogCustomize(getActivity(), "Error", "Could not connect to server !", "OK", "CANCEL");
-//                dialogCustomize.setTitleDialog("Error");
-//                dialogCustomize.setDescriptionDialog("Could not connect to server !");
-//                dialogCustomize.setLabelButtonOK("OK");
+                DialogCustomize dialogCustomize = new DialogCustomize(getActivity(), "Error", "Could not connect to server !", "OK");
                 dialogCustomize.setOnOkClickListener(new DialogCustomize.OnOkClickListener() {
                     @Override
                     public void onOkClick() {
-                         Toast.makeText(getActivity().getApplicationContext(), "Dismiss Dialog", Toast.LENGTH_SHORT).show();
+                         Toast.makeText(getActivity().getApplicationContext(), "Clicked button OK then dismiss Dialog", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dialogCustomize.setOnCancelClickListener(new DialogCustomize.OnCancelClickListener() {
                     @Override
                     public void onCancelClick() {
-                        Toast.makeText(getActivity().getApplicationContext(), "Dismiss Dialog", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "Clicked button Cancel then dismiss Dialog", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dialogCustomize.show();

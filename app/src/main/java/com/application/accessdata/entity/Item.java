@@ -1,4 +1,4 @@
-package com.application.accessdata.utilities;
+package com.application.accessdata.entity;
 
 /**
  * Created by 8470p on 2/7/2017.

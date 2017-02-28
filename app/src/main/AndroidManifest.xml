@@ -46,7 +46,7 @@
         <activity android:name=".BackStackActivity" />
         <activity android:name=".InflateActivity" />
         <activity android:name=".CustomizeFunctionActivity" />
-        <activity android:name="com.application.UiActivity"></activity>
+        <activity android:name=".UiActivity"></activity>
     </application>
 
 </manifest>

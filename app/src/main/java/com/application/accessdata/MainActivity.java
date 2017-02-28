@@ -14,7 +14,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
 
-import com.application.UiActivity;
 import com.application.accessdata.fragments.FirstLoadFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, UiActivity.class);
+                Intent intent = new Intent(MainActivity.this, CustomizeFunctionActivity.class);
                 startActivity(intent);
             }
         });

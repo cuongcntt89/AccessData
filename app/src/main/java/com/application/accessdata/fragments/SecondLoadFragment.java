@@ -1,18 +1,16 @@
 package com.application.accessdata.fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.application.accessdata.R;
 import com.application.accessdata.adapters.ItemAdapter;
-import com.application.accessdata.utilities.Item;
+import com.application.accessdata.entity.Item;
 
 import java.util.ArrayList;
 

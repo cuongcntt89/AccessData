@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.application.accessdata.R;
-import com.application.accessdata.utilities.Item;
+import com.application.accessdata.entity.Item;
 
 import java.util.ArrayList;
 

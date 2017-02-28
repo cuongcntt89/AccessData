@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.application.accessdata.R;
-import com.application.accessdata.entity.BuilderPatternDataTest;
 import com.application.accessdata.view.baseview.BaseView;
 
 /**
@@ -25,12 +24,12 @@ public class CustomizeFunctionActivityView implements BaseView {
         mRootView = LayoutInflater.from(context).inflate(R.layout.activity_customize_function, viewGroup);
         mViewContainer = (RelativeLayout) mRootView.findViewById(R.id.container);
 
-        BuilderPatternDataTest builderPatternDataTest = new BuilderPatternDataTest.Builder()
-                .setTitle("CuongNV")
-                .setNumber(101)
-                .build();
+//        BuilderPatternDataTest builderPatternDataTest = new BuilderPatternDataTest.Builder()
+//                .setTitle("CuongNV")
+//                .setNumber(101)
+//                .build();
 
-//        Log.e("DATA_RESULT => ", "1");
+//        Log.e("builderPattern => ", builderPatternDataTest.Builder().);
     }
 
     @Override
