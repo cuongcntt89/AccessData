@@ -15,6 +15,7 @@ public class NetworkReceiver extends BroadcastReceiver {
             Toast.makeText(context, "Network is available", Toast.LENGTH_SHORT).show();
         }else {
             Toast.makeText(context, "Network is not available", Toast.LENGTH_SHORT).show();
+            return;
         }
     }
 

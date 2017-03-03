@@ -46,7 +46,17 @@
         <activity android:name=".BackStackActivity" />
         <activity android:name=".InflateActivity" />
         <activity android:name=".CustomizeFunctionActivity" />
-        <activity android:name=".UiActivity"></activity>
+        <activity android:name=".UiActivity" />
+
+        <service
+            android:name=".services.ExService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".services.DownloadService"
+            android:exported="false" />
+
+        <activity android:name=".ExServiceActivity"></activity>
     </application>
 
 </manifest>
