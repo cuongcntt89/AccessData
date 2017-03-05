@@ -3,7 +3,6 @@ package com.application.accessdata.services;
 import android.app.Activity;
 import android.app.IntentService;
 import android.content.Intent;
-import android.content.Context;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,7 +11,7 @@ import java.net.URL;
 
 public class DownloadService extends IntentService {
 
-    public static final String URL_PATH = "http://www.objgen.com/json";
+    public static final String URL_PATH = "url.path";
     public static final String RESULT_DATA = "result.data";
     public static final String RESULT_STATE = "result.state";
 

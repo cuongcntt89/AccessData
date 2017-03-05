@@ -56,7 +56,12 @@
             android:name=".services.DownloadService"
             android:exported="false" />
 
-        <activity android:name=".ExServiceActivity"></activity>
+        <activity android:name=".ExServiceActivity" />
+
+        <service
+            android:name=".services.PlaySongService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
