@@ -3,6 +3,7 @@ package com.application.accessdata;
 import android.app.Dialog;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,8 +29,6 @@ public class CustomizeFunctionActivity extends AppCompatActivity implements Base
                 .setAddress("TH")
                 .build();
 
-        Log.e("USER_BUILDER_PARTERN", user.toString());
-
         if (customizeFunctionActivityView.mViewContainer != null) {
             if (savedInstanceState != null) {
                 return;
@@ -38,6 +37,9 @@ public class CustomizeFunctionActivity extends AppCompatActivity implements Base
             transaction.add(R.id.container, CustomizeFunctionFragment.newInstance());
             transaction.commit();
         }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.create();
     }
 
     private boolean isFragmentShown(Class<? extends Fragment> claz, int Id) {

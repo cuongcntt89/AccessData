@@ -15,6 +15,7 @@ import com.application.accessdata.view.fragmentview.CustomizeFunctionFragmentVie
 
 public class CustomizeFunctionFragment extends Fragment {
     private CustomizeFunctionFragmentView customizeFunctionFragmentView;
+    DialogCustomize dialogCustomize = null;
 
     public CustomizeFunctionFragment() {
         // Required empty public constructor
@@ -33,24 +34,36 @@ public class CustomizeFunctionFragment extends Fragment {
         customizeFunctionFragmentView.mButtonShowDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogCustomize dialogCustomize = new DialogCustomize(getActivity(), "Error", "Could not connect to server !", "OK");
-                dialogCustomize.setOnOkClickListener(new DialogCustomize.OnOkClickListener() {
+                dialogCustomize = new DialogCustomize(getActivity());
+                dialogCustomize.setTitleDialog("Error");
+                dialogCustomize.setDescriptionDialog("Could not connect to server.");
+                dialogCustomize.setPositiveButtonCustomize("OK", new DialogCustomize.OnOkClickListener() {
                     @Override
                     public void onOkClick() {
-                         Toast.makeText(getActivity().getApplicationContext(), "Clicked button OK then dismiss Dialog", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "Clicked button OK then dismiss Dialog", Toast.LENGTH_SHORT).show();
                     }
                 });
-                dialogCustomize.setOnCancelClickListener(new DialogCustomize.OnCancelClickListener() {
+                dialogCustomize.setNegativeButtonCustomize("CANCEl", new DialogCustomize.OnCancelClickListener() {
                     @Override
                     public void onCancelClick() {
                         Toast.makeText(getActivity().getApplicationContext(), "Clicked button Cancel then dismiss Dialog", Toast.LENGTH_SHORT).show();
                     }
                 });
+                dialogCustomize.setCancelable(false);
                 dialogCustomize.show();
             }
         });
 
         return customizeFunctionFragmentView.getRootView();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (dialogCustomize != null) {
+            dialogCustomize.dismiss();
+            dialogCustomize = null;
+        }
     }
 
 }
