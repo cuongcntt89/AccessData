@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager.SimpleOnPageChangeListener;
 import android.widget.Toast;
 
 import com.application.accessdata.adapters.TabsPagerAdapter;
+import com.application.accessdata.fragments.AnnotationsFragment;
 import com.application.accessdata.fragments.ViewPagerFirstFragment;
 import com.application.accessdata.fragments.ViewPagerSecondFragment;
 import com.application.accessdata.fragments.ViewPagerThirdFragment;
@@ -60,6 +61,7 @@ public class ViewPagerActivity extends FragmentActivity {
         fragmentList.add(ViewPagerFirstFragment.newInstance());
         fragmentList.add(ViewPagerSecondFragment.newInstance());
         fragmentList.add(ViewPagerThirdFragment.newInstance());
+        fragmentList.add(AnnotationsFragment.newInstance());
         return fragmentList;
     }
 

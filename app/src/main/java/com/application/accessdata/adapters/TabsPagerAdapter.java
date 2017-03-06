@@ -4,6 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.application.accessdata.fragments.AnnotationsFragment;
 import com.application.accessdata.fragments.ViewPagerFirstFragment;
 import com.application.accessdata.fragments.ViewPagerSecondFragment;
 import com.application.accessdata.fragments.ViewPagerThirdFragment;
@@ -40,6 +41,8 @@ public class TabsPagerAdapter extends FragmentPagerAdapter {
             title = ViewPagerFirstFragment.NAME_PAGE;
         }else if (fragment instanceof ViewPagerSecondFragment) {
             title = ViewPagerSecondFragment.NAME_PAGE;
+        }else if (fragment instanceof AnnotationsFragment) {
+            title = AnnotationsFragment.NAME_PAGE;
         }else {
             title = ViewPagerThirdFragment.NAME_PAGE;
         }
