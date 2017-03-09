@@ -28,6 +28,7 @@ public class AnnotationsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_annotations, container, false);
         ItemTypeDescriptor itemTypeDescriptor = new ItemTypeDescriptor(ItemTypeDescriptor.MODE_OTHER);
+        Log.e("Annotations => ", "Loaded");
         Log.e("itemTypeDescriptor => ", itemTypeDescriptor.itemType + "");
         return view;
     }

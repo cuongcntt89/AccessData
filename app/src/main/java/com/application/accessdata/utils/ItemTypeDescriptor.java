@@ -6,7 +6,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 public class ItemTypeDescriptor {
-    @Retention(RetentionPolicy.SOURCE)
+    @Retention(RetentionPolicy.CLASS)
     @IntDef({MODE_MUSSIC, MODE_VIDEO, MODE_OTHER})
     public @interface ItemTypeDef { }
     public int itemType;

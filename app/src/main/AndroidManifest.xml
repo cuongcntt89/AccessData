@@ -63,7 +63,9 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ViewPagerActivity"></activity>
+        <activity android:name=".ViewPagerActivity" />
+        <activity android:name=".SingletonActivity" />
+        <activity android:name=".SingletonToActivity"></activity>
     </application>
 
 </manifest>
