@@ -65,7 +65,8 @@
 
         <activity android:name=".ViewPagerActivity" />
         <activity android:name=".SingletonActivity" />
-        <activity android:name=".SingletonToActivity"></activity>
+        <activity android:name=".SingletonToActivity" />
+        <activity android:name=".ChatActivity"></activity>
     </application>
 
 </manifest>
