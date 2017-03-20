@@ -12,4 +12,5 @@
     <color name="colorButtonDialogPrimary">#008876</color>
     <color name="colorButtonDialogTemp">#ef3538</color>
 
+    <color name="colorBackgroundDivider">#C3C0C0</color>
 </resources>

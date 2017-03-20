@@ -2,6 +2,13 @@ package com.application;
 
 import android.app.Application;
 
+import com.application.accessdata.utils.Constants;
+
+import java.net.URISyntaxException;
+
+import io.socket.client.IO;
+import io.socket.client.Socket;
+
 /**
  * Created by CuongNV on 2/6/2017.
  */

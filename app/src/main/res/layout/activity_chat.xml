@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.application.accessdata.ChatActivity">
+    tools:context="com.application.accessdata.ChatActivity"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/frame_chat"
@@ -15,15 +15,39 @@
         android:orientation="vertical">
 
     </LinearLayout>
-    
+
     <View
-        android:layout_width="match_parent"
-        android:layout_height=""
-    
+        android:id="@+id/line_divider"
+        style="@style/style_divider_horizontal"/>
+
     <LinearLayout
+        android:id="@+id/frame_input"
         android:layout_width="match_parent"
-        android:layout_height="60dp">
-        
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp">
+
+        <EditText
+            android:id="@+id/content_chat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Enter value ..."
+            android:layout_marginRight="6dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_send"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_activity_chat_button_send"
+            android:text="Send"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
     </LinearLayout>
 
 </LinearLayout>
