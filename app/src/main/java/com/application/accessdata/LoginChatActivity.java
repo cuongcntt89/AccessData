@@ -1,19 +1,14 @@
 package com.application.accessdata;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import org.json.JSONArray;
+import com.application.accessdata.preferences.UserPrefrences;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,43 +17,24 @@ import java.io.IOException;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
-import okhttp3.HttpUrl;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 
 public class LoginChatActivity extends AppCompatActivity implements View.OnClickListener {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final String API_LOGIN = "http://10.64.1.114:8080/api/users";
-
-    private static final String SHARED_PREFERENCE_NAME = "UserPrefrences";
-
-    SharedPreferences sharedPreferences;
-
-    private String token;
-    private String resultRequestLogin;
+    private static final String API_LOGIN = "http://192.168.137.1:8080/api/users";
 
     private Button mButtonLogin;
     private EditText mInputUserName, mInputPassword;
-    private TextView mFrameResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_chat);
-
-        sharedPreferences = getSharedPreferences(SHARED_PREFERENCE_NAME, Context.MODE_PRIVATE);
-        if (sharedPreferences != null) {
-            token = sharedPreferences.getString("token", "");
-        }
-
-        if (token != null && token != "") {
-            Intent intent = new Intent(LoginChatActivity.this, ChatActivity.class);
-            startActivity(intent);
-        }
+        gotoChatScreen(UserPrefrences.getInstance(this.getApplicationContext()).getToken());
 
         initView();
         initEvent();
@@ -68,11 +44,17 @@ public class LoginChatActivity extends AppCompatActivity implements View.OnClick
         mButtonLogin = (Button) findViewById(R.id.btn_login);
         mInputUserName = (EditText) findViewById(R.id.input_user_name);
         mInputPassword = (EditText) findViewById(R.id.input_password);
-        mFrameResponse = (TextView) findViewById(R.id.frame_response);
     }
 
     private void initEvent() {
         mButtonLogin.setOnClickListener(this);
+    }
+
+    private void gotoChatScreen(String token) {
+        if (token != null && token != "") {
+            Intent intent = new Intent(LoginChatActivity.this, ChatActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void requestLogin() throws IOException {
@@ -102,16 +84,13 @@ public class LoginChatActivity extends AppCompatActivity implements View.OnClick
                     JSONObject jsonObject = new JSONObject(responseData);
                     if (jsonObject.has("token") && jsonObject.getString("token") != "") {
                         String tokenGet = jsonObject.getString("token");
+                        UserPrefrences.getInstance(LoginChatActivity.this.getApplicationContext()).setToken(tokenGet);
 
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString("token", tokenGet);
-                        editor.apply();
-
-                        LoginChatActivity.this.runOnUiThread(new Runnable(){
+                        LoginChatActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Intent intent = new Intent(LoginChatActivity.this, ChatActivity.class);
-                                startActivity(intent);
+                                String token = UserPrefrences.getInstance(LoginChatActivity.this.getApplicationContext()).getToken();
+                                gotoChatScreen(token);
                             }
                         });
                     }
@@ -120,6 +99,12 @@ public class LoginChatActivity extends AppCompatActivity implements View.OnClick
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        gotoChatScreen(UserPrefrences.getInstance(this.getApplicationContext()).getToken());
+        super.onResume();
     }
 
     @Override

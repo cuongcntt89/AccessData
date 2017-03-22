@@ -72,14 +72,6 @@
                     android:textSize="18sp"
                     android:text="Login" />
 
-                <TextView
-                    android:id="@+id/frame_response"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/btn_login"
-                    android:text="Response from Server"
-                    android:layout_marginTop="20dp"/>
-
             </RelativeLayout>
 
         </ScrollView>
