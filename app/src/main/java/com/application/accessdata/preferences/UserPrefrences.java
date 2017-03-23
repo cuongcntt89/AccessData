@@ -2,8 +2,6 @@ package com.application.accessdata.preferences;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.location.Location;
-import android.text.TextUtils;
 
 /**
  * Created by CuongNV on 3/22/2017.
