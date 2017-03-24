@@ -25,7 +25,7 @@ import okhttp3.Response;
 
 public class LoginChatActivity extends AppCompatActivity implements View.OnClickListener {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
-    private static final String API_LOGIN = "http://192.168.1.53:8080/api/users";
+    private static final String API_LOGIN = "http://10.64.1.114:8080/api/users";
 
     private Button mButtonLogin;
     private EditText mInputUserName, mInputPassword;

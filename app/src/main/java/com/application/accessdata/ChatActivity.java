@@ -3,12 +3,12 @@ package com.application.accessdata;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.application.accessdata.adapters.ItemListChatAdapter;
+import com.application.accessdata.entity.Message;
 import com.application.accessdata.utils.Constants;
 
 import org.json.JSONException;
@@ -25,8 +25,8 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
     private Button mButtonSend;
     private EditText mInputMessage;
     private ListView mListChat;
-    private ArrayList<String> listChat = null;
-    private ArrayAdapter listChatAdapter = null;
+    private ArrayList<Message> messageArrayList = null;
+    private ItemListChatAdapter itemListChatAdapter = null;
 
     private Socket mSocket;
 
@@ -54,10 +54,10 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
 
         // Init event
         mButtonSend.setOnClickListener(this);
+        messageArrayList = new ArrayList<Message>();
 
-        listChat = new ArrayList<>();
-        listChatAdapter = new ArrayAdapter(ChatActivity.this, android.R.layout.simple_list_item_1, listChat);
-        mListChat.setAdapter(listChatAdapter);
+        itemListChatAdapter = new ItemListChatAdapter(this, R.layout.item_list_chat_by_me, messageArrayList);
+        mListChat.setAdapter(itemListChatAdapter);
 
         mSocket.connect();
         mSocket.on("result", listener);
@@ -72,8 +72,20 @@ public class ChatActivity extends AppCompatActivity implements View.OnClickListe
                     JSONObject data = (JSONObject) args[0];
                     try {
                         String content = data.getString("content");
-                        listChat.add(content);
-                        listChatAdapter.notifyDataSetChanged();
+                        Message message = new Message.Builder()
+                                .setUserName("dev.th")
+                                .setMessage(content)
+                                .setTimePostMessage(242017)
+                                .setIsSend(true)
+                                .build();
+                        messageArrayList.add(message);
+                        itemListChatAdapter.notifyDataSetChanged();
+                        mListChat.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                mListChat.setSelection(itemListChatAdapter.getCount() - 1);
+                            }
+                        });
                         mInputMessage.setText("");
                     } catch (JSONException e) {
                         e.printStackTrace();

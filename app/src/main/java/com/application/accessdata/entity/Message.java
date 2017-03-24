@@ -10,15 +10,11 @@ public class Message {
     private double timePostMessage;
     private boolean isSend;
 
-    public Message() {
-        // TODO
-    }
-
-    public Message(String userName, String message, double timePostMessage, boolean isSend) {
-        this.userName = userName;
-        this.message = message;
-        this.timePostMessage = timePostMessage;
-        this.isSend = isSend;
+    public Message(Builder builder) {
+        this.userName = builder.bUserName;
+        this.message = builder.bMessage;
+        this.timePostMessage = builder.bTimePostMessage;
+        this.isSend = builder.isSend;
     }
 
     public String getUserName() {
@@ -32,8 +28,6 @@ public class Message {
     public double getTimePostMessage() {
         return timePostMessage;
     }
-
-
 
     public boolean isSend() {
         return isSend;
@@ -55,7 +49,7 @@ public class Message {
         this.timePostMessage = timePostMessage;
     }
 
-    private static class Builder {
+    public static class Builder {
         private String bUserName;
         private String bMessage;
         private double bTimePostMessage;
@@ -82,12 +76,7 @@ public class Message {
         }
 
         public Message build() {
-            Message message = new Message();
-            message.setUserName(bUserName);
-            message.setMessage(bMessage);
-            message.setTimePostMessage(bTimePostMessage);
-            message.setSend(isSend);
-            return message;
+            return new Message(this);
         }
     }
 }
