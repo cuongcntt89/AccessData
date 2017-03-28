@@ -1,5 +1,6 @@
 package com.application.accessdata;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,13 +14,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.application.accessdata.fragments.FirstLoadFragment;
+import com.application.accessdata.view.customize.dialog.DialogCustomizeSecond;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private FrameLayout mMainContentView;
+    private DialogCustomizeSecond dialogCustomizeSecond = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +36,25 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginChatActivity.class);
-                startActivity(intent);
+                dialogCustomizeSecond = new DialogCustomizeSecond.Builder(MainActivity.this)
+                        .setTitle("Guy")
+                        .setDescription("Description Guy")
+                        .onPositive("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(MainActivity.this, "Clicked button OK", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .onNegative("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(MainActivity.this, "Clicked button Cancel", Toast.LENGTH_SHORT).show();
+                                dialog.dismiss();
+                            }
+                        })
+                        .show();
+//                Intent intent = new Intent(MainActivity.this, LoginChatActivity.class);
+//                startActivity(intent);
             }
         });
 
@@ -60,6 +81,14 @@ public class MainActivity extends AppCompatActivity
         }
 
         initEvent();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (dialogCustomizeSecond.getBuilder() != null) {
+            dialogCustomizeSecond = null;
+        }
     }
 
     private void initView() {
